@@ -28,7 +28,7 @@ export default function Header() {
                                     App Financiera
                                 </Link>
 
-                                <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
+                                <a href="/crud-mongo" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
                                     CRUD con MongoDB
                                 </a>
                             </div>
@@ -43,7 +43,7 @@ export default function Header() {
                             CRUD c/Mike
                         </Link>
 
-                        <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Pricing">
+                        <a href="/crud-me" class="text-base font-medium text-white hover:text-indigo-50" key="Pricing">
                             CRUD s/Mike
                         </a>
 
@@ -51,7 +51,7 @@ export default function Header() {
                             App Financiera
                         </Link>
 
-                        <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
+                        <a href="/crud-mongo" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
                             CRUD con MongoDB
                         </a>
                     </div>
