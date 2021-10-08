@@ -35,6 +35,7 @@ function App() {
               <>
                 <FinancialApp>
                   {/* Este nos da la Financial App */}
+                  {/*También puedo usar props.match.path */}
                   <Route exact path={`${props.match.url}/:currency`} component={Details} />
                   <Route exact path={`${props.match.url}/`} component={Welcome} />
                 </FinancialApp>

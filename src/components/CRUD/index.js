@@ -9,8 +9,8 @@ export default function Crud() {
 
     // La publicación que está en el formulario
     const [post, setPost] = useState({
-        titulo: "",
-        contenido: ""
+        nombre: "",
+        descripcion: ""
     })
 
     // Un listado de todas las publicaciones que se han generado desde el formulario ( Un arreglo)
@@ -63,8 +63,8 @@ export default function Crud() {
 
         setPost({
             id: selectedElement.id,
-            titulo: selectedElement.titulo,
-            contenido: selectedElement.contenido
+            nombre: selectedElement.titulo,
+            descripcion: selectedElement.contenido
         })
 
         setId(selectedElement.id)
@@ -82,8 +82,8 @@ export default function Crud() {
             return element.id === id ?
                 {
                     id: id,
-                    titulo: post.titulo,
-                    contenido: post.contenido
+                    nombre: post.titulo,
+                    descricpion: post.contenido
                 }
                 : element
         })
@@ -96,19 +96,15 @@ export default function Crud() {
 
         // 5. BORRAR EL VALOR DE LOS INPUTS
         setPost({
-            titulo: "",
-            contenido: ""
+            nombre: "",
+            descripcion: ""
         })
 
     }
 
 
     const deletePost = (event, id) => {
-        // 1. EVITA LA RECARGA DE PÁGINA
         event.preventDefault()
-
-        // 2. VOY A UTILIZAR .FILTER PARA FILTRAR EL LISTADO DE PUBLICACIONES Y ENCONTRAR AL QUE QUIERO BORRAR
-        // AQUÍ ESTAMOS CREANDO UN ARREGLO NUEVO
 
         console.log("Este es el id que estás eligiendo:", id)
 
@@ -134,38 +130,38 @@ export default function Crud() {
                     (event) => { savePost(event) }}
 
                     className={editionMode ?
-                        "p-10 bg-yellow-100"
+                        "p-10 bg-beige-100"
                         :
                         null
                     }
                 >
 
-                    <label for="titulo" class="block text-sm font-medium text-gray-700">Título</label>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
                     <div class="mt-1">
                         <input
                             type="text"
-                            name="titulo"
-                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md mb-6"
+                            name="nombre"
+                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-blue-300 rounded-md mb-6"
                             placeholder="Escribe el título principal de la publicación..."
                             onChange={(event) => { handleInputs(event) }}
-                            value={post.titulo}
+                            value={post.nombre}
                         />
                     </div>
 
-                    <label for="contenido" class="block text-sm font-medium text-gray-700">Contenido</label>
+                    <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripcion</label>
                     <div class="mt-1">
                         <input
                             type="text"
-                            name="contenido"
-                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md mb-6" placeholder="Escribe tu contenido..."
+                            name="descricpion"
+                            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-blue-300 rounded-md mb-6" placeholder="Escribe tu contenido..."
                             onChange={(event) => { handleInputs(event) }}
-                            value={post.contenido}
+                            value={post.descripcion}
                         />
                     </div>
 
                     <button
                         type="submit"
-                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
 
                         {
@@ -174,14 +170,14 @@ export default function Crud() {
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                                     </svg>
-                                    Edita tu publicación
+                                    Edit
                                 </>
                                 :
                                 <>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293zM9 4a1 1 0 012 0v2H9V4z" />
                                     </svg>
-                                    Crear publicación
+                                    Create!
                                 </>
 
 
@@ -192,7 +188,7 @@ export default function Crud() {
                 </form>
 
 
-                <h1 class="text-4xl font-extrabold text-gray-900 mt-12 sm:text-5xl sm:tracking-tight lg:text-6xl">Publicaciones</h1>
+                <h1 class="text-4xl font-extrabold text-black-900 mt-12 sm:text-5xl sm:tracking-tight lg:text-6xl">Publicaciones</h1>
 
                 <ul role="list" class="divide-y divide-gray-200 mt-12">
 
@@ -206,7 +202,7 @@ export default function Crud() {
                         //}
 
                         list.length === 0 ?
-                            <p>Aún no tienes publicaciones.</p>
+                            <p>Haz nuevas publicaciones</p>
                             :
                             list.map(e => {
                                 return (
@@ -215,27 +211,27 @@ export default function Crud() {
                                             <div class="flex justify-between space-x-3">
                                                 <div class="min-w-0 flex-1 block focus:outline-none">
                                                     <span class="inset-0" aria-hidden="true"></span>
-                                                    <p class="text-sm font-medium text-gray-900 truncate">{e.titulo}</p>
+                                                    <p class="text-sm font-medium text-gray-900 truncate">{e.nombre}</p>
                                                 </div>
                                             </div>
                                             <div class="mt-1">
                                                 <p class="line-clamp-2 text-sm text-gray-600">
-                                                    {e.contenido}
+                                                    {e.descripcion}
                                                 </p>
                                             </div>
 
                                             <button
-                                                className="mr-4 mt-4 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gray-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-00"
+                                                className="mr-4 mt-4 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gray-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-00"
                                                 onClick={(event) => { toggleEditionMode(event, e) }}
                                             >
-                                                Editar
+                                                Edit
                                             </button>
 
                                             <button
-                                                className="mr-4 mt-4 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gray-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-00"
+                                                className="mr-4 mt-4 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-00"
                                                 onClick={(event) => { deletePost(event, e.id) }}
                                             >
-                                                Borrar
+                                                Delete
                                             </button>
                                         </li>
                                     </>
